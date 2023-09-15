@@ -1,7 +1,8 @@
-import Reporter from "./Reporter";
+import IFormatterStrategy from "./IFormatterStrategy";
+ 
 
-export default class ReporterHTML extends Reporter{
-    reportar() {
+export default class FormatterHTML implements IFormatterStrategy{
+    reportar(cidades) {
         let result = `
       <!DOCTYPE HTML>
       <html>
@@ -14,8 +15,8 @@ export default class ReporterHTML extends Reporter{
           <ul>
       `;
     
-        for (let i = 0; i < this.cidades.length; i++) {
-          result += '     <li>' + this.cidades[i]['Nome'] + '</li>\n';
+        for (let i = 0; i < cidades.length; i++) {
+          result += '     <li>' + cidades[i]['Nome'] + '</li>\n';
         }
     
         result += `
