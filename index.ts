@@ -2,8 +2,8 @@ import ReporterHTML from './src/FormatterHTML';
 import ReporterTxt from './src/FormatterTxt';
 import Reporter from './src/Reporter';
 
-const [cmd, filename, format] = process.argv;
-console.log(format);
+const [out, input, format,filename] = process.argv;
+console.log('here!!!!',filename);
 const formaterStrategies = {
   'html': new ReporterHTML(),
   'txt': new ReporterTxt()

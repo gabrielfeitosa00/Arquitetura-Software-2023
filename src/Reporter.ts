@@ -9,7 +9,7 @@ export default class Reporter{
         this.reporterStrategy = strategy;
     }
      private ler (caminho:string) {
-        this.cidades = fs.readFileSync(caminho);
+        this.cidades = fs.readFileSync(caminho).toString().split('');
       }
     
       private parse () {
