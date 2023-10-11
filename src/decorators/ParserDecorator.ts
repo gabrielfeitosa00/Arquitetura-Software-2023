@@ -1,14 +1,19 @@
  
 import IParser from "./IParser";
-export default abstract class ParserDecorator implements IParser{
+export default class ParserDecorator implements IParser{
     private wrappedDecorator:IParser
    
-
-    constructor(wrappedDecorator: IParser){
+    private data:string
+    constructor(wrappedDecorator: IParser,data:string){
     
         this.wrappedDecorator = wrappedDecorator
+        this.data = data
     }
-      parseData(data: string): string[] {
-        return this.wrappedDecorator.parseData(data)
+      parseData( ): string[] {
+        return this.wrappedDecorator.parseData(this.data)
+    }
+
+    getData(){
+        return this.data
     }
 }
