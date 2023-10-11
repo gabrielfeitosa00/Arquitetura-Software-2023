@@ -9,7 +9,7 @@ export default class ReporterTxtBuilder implements IReporterBuilder{
     private fileReader:FileReader
     private strategies: Array<IStrategyParams>
     private parser: IParser
-constructor(fileReader,parser,strategies){
+constructor(fileReader: FileReader,parser: IParser,strategies: IStrategyParams[]){
     this.fileReader = fileReader
     this.parser =  parser
     this.strategies = strategies
