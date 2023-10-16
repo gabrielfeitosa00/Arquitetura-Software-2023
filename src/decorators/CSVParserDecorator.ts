@@ -12,7 +12,7 @@ export default  class CSVParserDecorator extends ParserDecorator{
     const parsedNewData = parse(this.getData(),{delimiter:',',columns: true,
     skip_empty_lines: true}).map(item=>item['NOME'])
     console.log('Parsing CSV...')
-    const parsedDataFinal = Array.from( new Set([...previousData,parsedNewData]))
+    const parsedDataFinal = Array.from( new Set([...previousData,...parsedNewData]))
     return parsedDataFinal
    }
 }

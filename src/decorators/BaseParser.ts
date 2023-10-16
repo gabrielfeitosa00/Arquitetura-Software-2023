@@ -5,7 +5,7 @@ export default class BaseParser implements IParser{
     this.data = data
   }
   parseData():  string[]  {
-   
-    return this.data.trim().split('')
+   console.log('Base parsing...',this.data.trim()) 
+    return []
 }
 }

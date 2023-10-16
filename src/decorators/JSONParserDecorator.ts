@@ -9,7 +9,7 @@ export default class JSONParserDecorator extends ParserDecorator{
     const previousData=super.parseData()
     const parsedNewData = JSON.parse( this.getData()).map(item=>item['Nome'])
     console.log('Parsing JSON...')
-    const parsedDataFinal = Array.from( new Set([...previousData,parsedNewData]))
+    const parsedDataFinal = Array.from( new Set([...previousData,...parsedNewData]))
     return parsedDataFinal
    }
 }

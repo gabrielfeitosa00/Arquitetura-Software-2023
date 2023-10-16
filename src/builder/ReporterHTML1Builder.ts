@@ -28,7 +28,7 @@ constructor(fileReader: FileReader,parser: IParser,strategies: IStrategyParams[]
         `;
       
           for (let i = 0; i < data.length; i++) {
-            result += '     <li>' + data[i]['Nome'] + '</li>\n';
+            result += '     <li>' + data[i] + '</li>\n';
           }
       
           result += `

@@ -10,7 +10,7 @@ export default class ParserDecorator implements IParser{
         this.data = data
     }
       parseData( ): string[] {
-        return this.wrappedDecorator.parseData(this.data)
+        return this.wrappedDecorator.parseData()
     }
 
     getData(){
