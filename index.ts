@@ -1,7 +1,7 @@
  
 import FileReader from './src/FilReader';
 import ReporterDirector from './src/builder/ReporterDirector';
-import ReporterHTML1Builder from './src/builder/ReporterHTML1Builder';
+import ReporterHTML1Builder from './src/builder/ReporterHTMLBuilder';
 import ReporterTxtBuilder from './src/builder/ReporterTxtBuilder';
 import BaseParser from './src/decorators/BaseParser';
 
@@ -21,11 +21,11 @@ const reporterTxtBuilder = new ReporterTxtBuilder(fileReader
     [{path:'./data/cidades-2.json',fileType:'JSON'},
    ])
 
-const reporterHTML1Builder = new ReporterHTML1Builder(fileReader
+const reporterHTMLBuilder = new ReporterHTML1Builder(fileReader
     ,testA,  [ 
     {path:'./data/cidades-2.json',fileType:'JSON'},])
 
-const reporterDirector = new ReporterDirector(reporterHTML1Builder)
+const reporterDirector = new ReporterDirector(reporterHTMLBuilder)
 
 reporterDirector.makeReporter()
 
