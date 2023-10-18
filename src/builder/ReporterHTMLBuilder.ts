@@ -2,6 +2,7 @@ import FileReader from "../FilReader";
 import CSVParserDecorator from "../decorators/CSVParserDecorator";
 import IParser from "../decorators/IParser";
 import JSONParserDecorator from "../decorators/JSONParserDecorator";
+import XMLParserDecorator from "../decorators/XMLParser";
 import YAMLParserDecorator from "../decorators/YAMLParserDecorator";
 import IReporterBuilder from "./IReporterBuilder";
 import IStrategyParams from "./IStrategyParams";
@@ -53,6 +54,9 @@ constructor(fileReader: FileReader,parser: IParser,strategies: IStrategyParams[]
                 case 'YAML':
                   this.parser = new YAMLParserDecorator(this.parser,data)
                   break;
+                case 'XML':
+                  this.parser = new XMLParserDecorator(this.parser,data)
+                  break;  
                 default:
                     console.log(`Unsupported extension, the file at ${strategy.path} won't be read`)
             }
