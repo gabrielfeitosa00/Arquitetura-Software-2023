@@ -1,0 +1,24 @@
+*scipts: rode o projeto usando npm run start:dev
+
+*index.ts: código que é executado os builders e decorators
+
+*data: Arquivos de base para serem lidos
+
+*src/builder: Inclui classes diretoras e builder
+    * Funcionamento basico dos builders:
+        -O método dataInput percorre o array de strategies e lê o arquivo de parse. 
+        Em seguida é passado por um switch, o switch usa como base of filetype para saber qual parser usar
+        no encadeiamento, se o filetype não é suportado o arquivo não é parseado.
+        Após encadear os parsers é executado parseData para executar os parsers encadeados
+
+        - O método dataOutput pega o Array de strings gerado no método dataInput e usa o método
+        de output do builder
+
+        - A classe diretor recebe um builder e executa dataInput pega seu retorno, em seguida executa
+          dataOutput com esse retorno
+
+*src/decorator: Inclui as classes de decorator que realiza os parsers 
+    * Funcionamento básico dos parsers:
+        - pega o Resultado do parser anterior
+        - parsea a referência do arquivo em data e retorna um array de strings
+        - Cria um array único de strings concatenando o resultado anterior e o atual

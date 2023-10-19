@@ -4,6 +4,8 @@ export default class BaseParser implements IParser{
   constructor(data:string){
     this.data = data
   }
+  // Parser base para iniciar o encadeamento
+  // Não Retorna nada para não interferir nos outros parsers
   parseData():  string[]  {
    console.log('Base parsing...',this.data.trim()) 
     return []

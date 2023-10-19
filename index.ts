@@ -7,42 +7,45 @@ import BaseParser from './src/decorators/BaseParser';
 
 const [out, input, format,filename] = process.argv;
 console.log('here!!!!',filename);
+// Classe de Leitor de arquivo
+// Pode ser usado por qualquer  Builder
+
 const fileReader = new FileReader()
 const data = fileReader.readFile('./data/cidades-2.json')
-const dataCSV = fileReader.readFile('./data/cidades.csv')
+ 
+// Parser base, apenas printa o resultado do Buffer
+// Usado apenas para inicial o encadeamento de Decorators
 const baseParser = new BaseParser(data)
-// const testB = new JSONParserDecorator(baseParser,data)
-// const testC = new CSVParserDecorator(testB,dataCSV)
+ 
+// Builder para realizar o output no formato Txt
+//Cada Builder recebe 3 parametros:
+// * FileReader: Clase para realizar a leitura de arquivos
+// * Parser: Se passa o parser base para inicial o endadeamento de decorators
+// * Strategies: Um array de objetos com duas propriedades
+//   path, o local do arquivo, e fileType, a extensão do arquivo.
+//   Esse array é usuado para o Builder saber o local do arquivo
+//   e qual decorator de parser encadear.
 
-// const output = testC.parseData()
-// console.log(output)
 const reporterTxtBuilder = new ReporterTxtBuilder(fileReader
     ,baseParser,
     [{path:'./data/cidades-2.json',fileType:'JSON'},
    ])
 
+// Builder para realizar o output no formato Html
 const reporterHTMLBuilder = new ReporterHTML1Builder(fileReader
     ,baseParser,  [ 
     {path:'./data/cidades.html',fileType:'HTML'},])
 
+// Classe diretor, recebe o builder e executa seus métodos
+// de leitura e output
 const reporterDirector = new ReporterDirector(reporterHTMLBuilder)
 
+// Método para executar o builder e imprimir o output
 reporterDirector.makeReporter()
 
-// reporterDirector.setBuilder(reporterHTML1Builder)
-// reporterDirector.makeReporter()
-// const formaterStrategies = {
-//   'html': new ReporterHTML(),
-//   'txt': new ReporterTxt()
-// }
-// try {
-//   let reporter = new CitiesReporter(
-//     formaterStrategies[format]
-//    ),
-//    output = reporter.executeReporter(filename);
-//    console.log(output);
-// } catch (error) {
-//   console.log('Formato inválido!')
-// }
+// Mudança do builder para o formato Txt
+reporterDirector.setBuilder(reporterTxtBuilder)
+reporterDirector.makeReporter()
 
+ 
  

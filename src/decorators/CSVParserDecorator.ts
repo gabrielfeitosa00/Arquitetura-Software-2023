@@ -4,7 +4,7 @@ import { parse } from 'csv-parse/sync';
 import ParserDecorator from "./ParserDecorator";
 export default  class CSVParserDecorator extends ParserDecorator{
    
- 
+
 
     parseData():  string[] {
     const previousData=super.parseData()
