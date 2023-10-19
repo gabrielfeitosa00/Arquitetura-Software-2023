@@ -1,5 +1,6 @@
 import FileReader from "../FilReader";
 import CSVParserDecorator from "../decorators/CSVParserDecorator";
+import HTMLParserDecorator from "../decorators/HTMLParserDecorator";
 import IParser from "../decorators/IParser";
 import JSONParserDecorator from "../decorators/JSONParserDecorator";
 import XMLParserDecorator from "../decorators/XMLParser";
@@ -57,6 +58,9 @@ constructor(fileReader: FileReader,parser: IParser,strategies: IStrategyParams[]
                 case 'XML':
                   this.parser = new XMLParserDecorator(this.parser,data)
                   break;  
+                case 'HTML':
+                    this.parser = new HTMLParserDecorator(this.parser,data)
+                    break;  
                 default:
                     console.log(`Unsupported extension, the file at ${strategy.path} won't be read`)
             }

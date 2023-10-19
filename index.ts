@@ -23,7 +23,7 @@ const reporterTxtBuilder = new ReporterTxtBuilder(fileReader
 
 const reporterHTMLBuilder = new ReporterHTML1Builder(fileReader
     ,baseParser,  [ 
-    {path:'./data/cidades.xml',fileType:'XML'},])
+    {path:'./data/cidades.html',fileType:'HTML'},])
 
 const reporterDirector = new ReporterDirector(reporterHTMLBuilder)
 

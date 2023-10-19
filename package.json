@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "csv-parse": "^5.5.2",
+    "node-html-parser": "^6.1.10",
     "xml-parser": "^1.2.1",
     "yaml": "^2.3.3"
   }
